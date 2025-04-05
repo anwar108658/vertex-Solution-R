@@ -15,8 +15,8 @@ const Tabs = () => {
       className={`flex gap-3 px-2 ${location === "form" ? "block" : "hidden"}`}
     >
       {subMenu?.tabs?.length > 0
-        ? subMenu?.tabs.map((item) => (
-            <div className="flex items-center gap-2">
+        ? subMenu?.tabs.map((item,index) => (
+            <div key={index} className="flex items-center gap-2">
               <button
                 onClick={() => dispatch(activeTab(item?.id))}
                 className={`relative flex gap-2 items-center text-[.8rem] py-1 hover:bg-blue-50 text-gray-700 cursor-pointer 

@@ -13,7 +13,7 @@ const BodySection = () => {
     const location = useLocation().pathname.split('/')[1]
 
   return (
-    <div className='w-full h-full bg-white shadow-[inset_0_2px_20px_rgba(59,130,246,0.2)] '>
+    <div className='w-full h-screen bg-white shadow-[inset_0_2px_20px_rgba(59,130,246,0.2)] '>
       {/* subMenu */}
        <SubMenu/>
 
@@ -22,8 +22,8 @@ const BodySection = () => {
 
       {/* form */}
       <div>
-        {tabs.length > 0 && tabs.map((item) => (
-          <div className={activeTab === item?.id ? "block":"hidden"}>
+        {tabs.length > 0 && tabs.map((item,index) => (
+          <div key={index} className={activeTab === item?.id ? "block":"hidden"}>
             <FormContainer item={item}/>
           </div>
         ))}  

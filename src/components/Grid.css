@@ -1,0 +1,32 @@
+td{
+    font-size: .8rem !important;
+}
+
+.dx-datagrid .dx-row>td {
+    color: #4d4a4a;
+    padding: 5px 5px ;
+}
+.dx-datagrid-content .dx-datagrid-table [class*=column]+[class*=column]:last-child {
+    float: none;
+    background-color: #eee !important;
+}
+
+
+.dx-datagrid-column-chooser .dx-overlay-content {
+    width: 250px;
+    height: 340px;
+    z-index: 1501;
+    left: 0;
+    top: 0;
+    transform: none; 
+    transition: none;
+    opacity: 1;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    pointer-events: auto;
+}
+.dx-overlay-wrapper *{
+    font-size: .8rem !important;
+}

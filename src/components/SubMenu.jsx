@@ -24,7 +24,7 @@ const SubMenu = () => {
             <div className='flex gap-3 text-[.7rem] px-5 py-2'>
               {
                 subMenu && subMenu?.menu?.length > 0 ? subMenu.menu.map((item,index) => (
-                  <div onClick={() => HandleSubMenu(item)} className='p-2 inline-flex flex-col gap-2 items-end bg-blue-50  shadow-lg shadow-blue-100 rounded-lg border-1  border-blue-300 hover:scale-105 transition-all duration-300 hover:cursor-pointer hover:bg-blue-300 '>
+                  <div key={index} onClick={() => HandleSubMenu(item)} className='p-2 inline-flex flex-col gap-2 items-end bg-blue-50  shadow-lg shadow-blue-100 rounded-lg border-1  border-blue-300 hover:scale-105 transition-all duration-300 hover:cursor-pointer hover:bg-blue-300 '>
                     <p>
                       {item.menuName}
                     </p>

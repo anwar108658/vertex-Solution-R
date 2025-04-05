@@ -28,11 +28,10 @@ const FormContainer = ({ item }) => {
   const navigate = useNavigate();
 
   const [inputElemShow, setInputElemShow] = useState(true);
+  const [gridElemShow,setGridElemShow] = useState(true)
   const [gridShow, setGridShow] = useState();
 
   const [reportData, setReportData] = useState();
-  console.log(item, item);
-
   //
   const getReportData = async () => {
     try {
@@ -48,11 +47,9 @@ const FormContainer = ({ item }) => {
       );
 
       const text = await response.text(); // Get response as text
-      console.log("Raw Response:", text);
 
       const data = JSON.parse(text); // Convert to JSON
       setReportData(data?.data);
-      console.log(data);
     } catch (error) {
       console.error("Fetch Error:", error);
     }
@@ -139,8 +136,9 @@ const FormContainer = ({ item }) => {
             className={`${inputElemShow ? "block" : "hidden"}`}
           >
             {item?.reportParams?.length > 0 &&
-              item.reportParams.map((item) => (
+              item.reportParams.map((item,index) => (
                 <TextBox
+                  key={index}
                   stylingMode="underlined"
                   hoverStateEnabled={false}
                   mode={item.fieldName}
@@ -161,25 +159,29 @@ const FormContainer = ({ item }) => {
         <div className="flex justify-between items-center px-2 py-1 text-blue-600 text-[.8rem] border-b-1 border-blue-500">
           <p
             className="hover:cursor-pointer"
-            onClick={() => setInputElemShow(!inputElemShow)}
+            onClick={() => setGridElemShow(!gridElemShow)}
           >
             {item.reportName}
           </p>
           <div className="flex gap-2">
-            <button className="hover:cursor-pointer">
-              <FontAwesomeIcon icon={faExpand} />
-            </button>
+            <div>
+              <button className="hover:cursor-pointer">
+                <FontAwesomeIcon icon={faExpand} />
+              </button>
+            </div>
             <button
               className="hover:cursor-pointer"
-              onClick={() => setInputElemShow(!inputElemShow)}
+              onClick={() => setGridElemShow(!gridElemShow)}
             >
               <FontAwesomeIcon
-                icon={inputElemShow ? faCircleUp : faCircleDown}
+                icon={gridElemShow ? faCircleUp : faCircleDown}
               />
             </button>
           </div>
         </div>
-        {item?.reportType === "G" ? <Grid data={reportData} /> : <PiovetGrid />}
+        <div className={`${gridElemShow ? "block" : "hidden"}`}>
+          {item?.reportType === "G" ? <Grid data={reportData} /> : <PiovetGrid />}
+        </div>
       </div>
     </div>
   );

@@ -126,7 +126,7 @@ useEffect(() => {
     >
       <>
       {/*  Navbar */}
-      <nav className='flex  justify-between items-center  py-2 px-2'>
+      <nav className='flex sticky justify-between items-center  py-2 px-2'>
         <div>
           <button onClick={() => setOpened(!opened)} className='cursor-pointer'>
             <FontAwesomeIcon className='text-gray-700' fontSize="17px" icon={faBars} />
