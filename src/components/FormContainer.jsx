@@ -75,6 +75,10 @@ const FormContainer = ({ item }) => {
       case "Close":
         navigate(-1);
         break;
+        case "Load":
+        getReportData();
+        console.log("first")
+        break;
       default:
         break;
     }
